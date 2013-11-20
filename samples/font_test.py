@@ -73,8 +73,6 @@ while True:
             led.command(led.SET_START_LINE | offset)
             time.sleep(0.01)
 
-        #time.sleep(1.0)
-
         if (textSize > 128):
             for scroll in range(0,textSize-128):
                 led.col_offset = scroll
@@ -85,11 +83,3 @@ while True:
                 led.display()
         else:
             time.sleep(1.0)
-            
-            #row = (offset+32) % 64
-            #led.clear_block(0,row,128,32)
-            #led.draw_text3(-scroll,row+y,font.name,font)
-            #led.display()
-            #offset = (offset+32) % 64
-            #led.command(led.SET_START_LINE | offset)
-            #time.sleep(0.01)
