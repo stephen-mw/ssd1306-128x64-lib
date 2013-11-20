@@ -1,8 +1,11 @@
 py-gaugette
 ===========
 
-A library for interfacing hardware with the Raspberry Pi.
-Supports analog gauges, capacitance switches, RGB leds and other devices.
+A library for interfacing with the ssd1306 oled with the raspberry pi.
+
+Original author: [Guy Carpenter](https://github.com/guyc/py-gaugette)
+
+Modifications were done to support the ssd1306 128x64.
 
 Prerequisites
 =============
@@ -68,75 +71,6 @@ The fonts include the printable ASCII characters ('!' through '~') and because o
 textSize = led.draw_text3(0,0,'451\177F', font)
 ```
 
-OAuth Usage
-===========
-
-```python
-    import gaugette.oauth
-    CLIENT_ID       = 'your client_id here'
-    CLIENT_SECRET   = 'your client secret here'
-
-    oauth = gaugette.oauth.OAuth(CLIENT_ID, CLIENT_SECRET)
-    if not oauth.has_token():
-        user_code = oauth.get_user_code()
-        print "Go to %s and enter the code %s" % (oauth.verification_url, user_code)
-        oauth.get_new_token()
-```
-
-CapSwitch Usage
-===============
-
-```python
-    import gaugette.capswitch
-    SWICH_PIN = 3
-    switch = gaugette.capswitch.CapSwitch(SWITCH_PIN)
-    while True:
-        if switch.sense():
-            print 'sensed'
-```
-
-Rgb Led Usage
-=============
-
-```python
-    import gaugette.rgbled
-    R_PIN = 4
-    G_PIN = 5
-    B_PIN = 6
-    led = gaugette.rgbled.RgbLed(R_PIN,R_PIN,B_PIN)
-    led.set(0,50,100)
-    led.fade(100,0,0)
-```
-
-Rotary Encoder Usage
-====================
-
-```python
-    import gaugette.rotary_encoder
-    A_PIN = 7
-    B_PIN = 9
-    encoder = gaugette.rotary_encoder.RotaryEncoder(A_PIN, B_PIN)
-    while True:
-      delta = encoder.delta()
-      if delta!=0:
-        print "rotate %d" % delta
-```
-
-Switch Usage
-====================
-
-```python
-    import gaugette.switch
-    SW_PIN = 8
-    sw = gaugette.switch.Switch(SW_PIN)
-    last_state = sw.state()
-    while True:
-      state = sw.state()
-      if state != last_state:
-        print "switch %d" % state
-        last_state = state
-```
-
 Discussion At
 =============
 
@@ -164,5 +98,3 @@ git clone git://github.com/guyc/py-gaugette.git
 cd py-gaugette
 sudo python setup.py install
 ```
-
-
