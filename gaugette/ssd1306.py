@@ -149,8 +149,8 @@ class SSD1306:
             self.command(self.SET_MULTIPLEX, 0x3F) 
             self.command(self.SET_COM_PINS, 0x12)
         else:
-            self.command(self.SET_MULTIPLEX, 0x1F)
-            self.command(self.SET_COM_PINS, 0x02)
+            self.command(self.SET_MULTIPLEX, 0x3F)
+            self.command(self.SET_COM_PINS, 0x12)
             
         self.command(self.SET_DISPLAY_OFFSET, 0x00)
         self.command(self.SET_START_LINE | 0x00)
