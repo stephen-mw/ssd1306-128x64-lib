@@ -9,6 +9,6 @@ setup(name='gaugette',
       author_email='guy@clearwater.com.au',
       url='http://github.com/guyc/py-gaugette/',
       license = 'LICENSE.txt',
-      long_description=open('README.txt').read(),
+      long_description=open('README.md').read(),
       packages=['gaugette', 'gaugette.fonts'],
 )
